@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Layout, { Page } from "../../../components/layout";
 import { PAGE_IDS } from "../../../config/variables";
@@ -10,9 +10,20 @@ import butterfly from "../../../assets/images/background/butterfly.jpg";
 import Image from "next/image";
 import { designProjects, illustrationProjects } from "@/config/projects";
 
-const ClientSideProjectContainer = ({ id }: { id: string }) => {
+const ClientSideProjectContainer = ({ params }: { params: any }) => {
   const searchParams = useSearchParams();
   const searchParamsObject = Object.fromEntries(searchParams.entries());
+
+  const [id, setId] = useState("");
+
+  useEffect(() => {
+    awaitParams();
+  }, []);
+
+  const awaitParams = useCallback(async () => {
+    const awaitedParams = await params;
+    setId(awaitedParams.id);
+  }, [params]);
 
   const project = [...illustrationProjects, ...designProjects].find(
     (i) => i.id === id

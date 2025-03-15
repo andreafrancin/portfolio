@@ -9,6 +9,6 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ProjectPage({ params }: { params: { id: string } }) {
-  return <ClientSideProjectContainer id={params.id} />;
+export default function ProjectPage({ params }: any) {
+  return <ClientSideProjectContainer params={params} />;
 }
