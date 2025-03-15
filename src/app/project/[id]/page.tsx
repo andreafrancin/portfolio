@@ -1,7 +1,6 @@
 "use client";
-
 import React from "react";
-import { useParams, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import Layout, { Page } from "../../../components/layout";
 import { PAGE_IDS } from "../../../config/variables";
 import styles from "./index.module.scss";
@@ -10,20 +9,27 @@ import butterfly from "../../../assets/images/background/butterfly.jpg";
 import Image from "next/image";
 import { designProjects, illustrationProjects } from "@/config/projects";
 
-function ProjectContainer() {
-  const urlParams = useParams();
+export async function generateStaticParams() {
+  const allProjects = [...designProjects, ...illustrationProjects];
+
+  return allProjects.map((project) => ({
+    id: project.id,
+  }));
+}
+
+function ProjectContainer({ params }: { params: { id: string } }) {
   const searchParams = useSearchParams();
-  const params = Object.fromEntries(searchParams.entries());
+  const searchParamsObject = Object.fromEntries(searchParams.entries());
 
   const project = [...illustrationProjects, ...designProjects].find(
-    (i) => i.id === urlParams.id
+    (i) => i.id === params.id
   );
 
   const imageUrl =
-    params.type === PAGE_IDS.design ? pineTree.src : butterfly.src;
+    searchParamsObject.type === PAGE_IDS.design ? pineTree.src : butterfly.src;
 
   return (
-    <Layout headerConfig={{ currentPage: params.type as Page }}>
+    <Layout headerConfig={{ currentPage: searchParamsObject.type as Page }}>
       <div className={styles.overlayer} />
       <div
         className={styles.background}
@@ -31,13 +37,13 @@ function ProjectContainer() {
       />
       <div className={styles.container}>
         <h1 className={styles.title}>{`.·. ${
-          params.title || "Untitled"
+          searchParamsObject.title || "Untitled"
         } .·.`}</h1>
         <div className={styles.imageContainer}>
           {project ? (
             <Image
               src={project.imageUrl}
-              alt={params.title || "Project Image"}
+              alt={searchParamsObject.title || "Project Image"}
               width={800}
               height={600}
             />
