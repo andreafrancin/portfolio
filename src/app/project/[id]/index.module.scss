@@ -1,27 +1,30 @@
-@import "../../app/fonts.css";
+@import "../../fonts.css";
 
 .container {
   display: flex;
   align-items: center;
   flex-direction: column;
   width: 100vw;
-  height: fit-content;
   padding-top: 100px;
+  background-color: black;
 }
 
 .title {
-  z-index: 2;
+  z-index: 3;
   color: #fff;
   margin: 40px 0;
   font-size: 36px;
   font-family: "Laisha", sans-serif;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .background {
   width: 100vw;
   min-height: 100vh;
-  position: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 1;
 }
 
@@ -29,6 +32,26 @@
   width: 100vw;
   min-height: 100vh;
   z-index: 2;
-  position: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
   background: linear-gradient(to top, #000, rgba(0, 0, 0, 0));
+}
+
+.imageContainer {
+  width: 400px;
+  z-index: 3;
+  border-radius: 10px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .imageContainer {
+    width: 90vw;
+  }
 }
