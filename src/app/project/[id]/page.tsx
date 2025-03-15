@@ -1,5 +1,6 @@
 import { designProjects, illustrationProjects } from "@/config/projects";
 import ClientSideProjectContainer from "./index";
+import { Suspense } from "react";
 
 export async function generateStaticParams() {
   const allProjects = [...designProjects, ...illustrationProjects];
@@ -10,5 +11,9 @@ export async function generateStaticParams() {
 }
 
 export default function ProjectPage({ params }: any) {
-  return <ClientSideProjectContainer params={params} />;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ClientSideProjectContainer params={params} />;
+    </Suspense>
+  );
 }
