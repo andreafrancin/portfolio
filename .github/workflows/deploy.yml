@@ -1,4 +1,4 @@
-name: CI/CD for React App
+name: Deploy Andrea Francin Portfolio to GitHub Pages
 
 on:
   push:
