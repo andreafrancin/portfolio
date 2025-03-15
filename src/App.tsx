@@ -10,9 +10,9 @@ import ProjectContainer from "./pages/project";
 
 const App: React.FC = () => {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Routes>
-        <Route path="/" element={<HomeContainer />} />
+        <Route exact path="/" element={<HomeContainer />} />
         <Route path="/about" element={<AboutContainer />} />
         <Route path="/contact" element={<ContactContainer />} />
         <Route path="/design" element={<DesignContainer />} />
