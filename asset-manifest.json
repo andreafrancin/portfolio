@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.28953d9e.css",
-    "main.js": "/portfolio/static/js/main.bb39511e.js",
+    "main.js": "/portfolio/static/js/main.655c0b8a.js",
     "static/media/02_Viaje_hacia_el_interior.JPEG": "/portfolio/static/media/02_Viaje_hacia_el_interior.e5e748f2ba4a8b5fb6e5.JPEG",
     "static/media/01_REBIRTH.jpg": "/portfolio/static/media/01_REBIRTH.40c77e0ebf281cdcc0e2.jpg",
     "static/media/07_EL_SALZE_PLORANER.JPEG": "/portfolio/static/media/07_EL_SALZE_PLORANER.5ac1e2ed4e62976f61a6.JPEG",
@@ -34,10 +34,10 @@
     "static/media/Laisha.otf": "/portfolio/static/media/Laisha.2b91b389e630bb8d5275.otf",
     "index.html": "/portfolio/index.html",
     "main.28953d9e.css.map": "/portfolio/static/css/main.28953d9e.css.map",
-    "main.bb39511e.js.map": "/portfolio/static/js/main.bb39511e.js.map"
+    "main.655c0b8a.js.map": "/portfolio/static/js/main.655c0b8a.js.map"
   },
   "entrypoints": [
     "static/css/main.28953d9e.css",
-    "static/js/main.bb39511e.js"
+    "static/js/main.655c0b8a.js"
   ]
 }
