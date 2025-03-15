@@ -2,7 +2,7 @@
   "name": "druida",
   "version": "0.1.0",
   "private": false,
-  "homepage": "http://andreafrancin.github.io/portfolio",
+  "homepage": "https://andreafrancin.github.io/portfolio",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
