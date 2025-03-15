@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/static/css/main.dea4eaf2.css",
+    "main.js": "/static/js/main.28807dbf.js",
+    "static/media/02_Viaje_hacia_el_interior.JPEG": "/static/media/02_Viaje_hacia_el_interior.e5e748f2ba4a8b5fb6e5.JPEG",
+    "static/media/01_REBIRTH.jpg": "/static/media/01_REBIRTH.40c77e0ebf281cdcc0e2.jpg",
+    "static/media/07_EL_SALZE_PLORANER.JPEG": "/static/media/07_EL_SALZE_PLORANER.5ac1e2ed4e62976f61a6.JPEG",
+    "static/media/03_Scary_Fairy.JPEG": "/static/media/03_Scary_Fairy.75202c2328004c37038e.JPEG",
+    "static/media/08_EL_SALZE_2.JPEG": "/static/media/08_EL_SALZE_2.b598dc94c921e4041aec.JPEG",
+    "static/media/04_Witch_&_Magic.JPEG": "/static/media/04_Witch_&_Magic.d553790a9a64e022f894.JPEG",
+    "static/media/glowing-insects.jpg": "/static/media/glowing-insects.1af464dcd06b052fe527.jpg",
+    "static/media/butterfly.jpg": "/static/media/butterfly.7c67b97acb2208adef1c.jpg",
+    "static/media/druida2.jpeg": "/static/media/druida2.7e36447381eb31993e2b.jpeg",
+    "static/media/pine-tree.jpg": "/static/media/pine-tree.37a0a5fd2295b7a3349a.jpg",
+    "static/media/06_LA_DANZA_SAGRADA_FLORECIENDO.JPG": "/static/media/06_LA_DANZA_SAGRADA_FLORECIENDO.a5f7130c294a3157ccda.JPG",
+    "static/media/logo_color.png": "/static/media/logo_color.6c38e10aba9443881dfc.png",
+    "static/media/logo_white.png": "/static/media/logo_white.8c2aba7065414619a081.png",
+    "static/media/05_LA_DANZA_SAGRADA.JPG": "/static/media/05_LA_DANZA_SAGRADA.ff3a4c9867a5b880e53a.JPG",
+    "static/media/01_TWINTRAIL_PORTRAIT.jpg": "/static/media/01_TWINTRAIL_PORTRAIT.83ff3679c536fac45bdd.jpg",
+    "static/media/11_WANDERZ_PORTRAIT.jpg": "/static/media/11_WANDERZ_PORTRAIT.82b7f7a763f1b094c16a.jpg",
+    "static/media/05_LOriginal_PORTRAIT.jpg": "/static/media/05_LOriginal_PORTRAIT.31d0f4ae5a5f232edc2b.jpg",
+    "static/media/04_EDM_PORTRAIT.jpg": "/static/media/04_EDM_PORTRAIT.f89b2feaecc5632906bc.jpg",
+    "static/media/13_Cinesa_portrait.jpg": "/static/media/13_Cinesa_portrait.ef76be18424c346791b1.jpg",
+    "static/media/06_AERIAL_PORTRAIT.jpg": "/static/media/06_AERIAL_PORTRAIT.be14cf45130193381b74.jpg",
+    "static/media/15_CB_portrait.jpg": "/static/media/15_CB_portrait.1d476dec5ecc541b50a4.jpg",
+    "static/media/02_Antic_Cinema_PORTRAIT.jpg": "/static/media/02_Antic_Cinema_PORTRAIT.6635e4331e2abd650b0a.jpg",
+    "static/media/12_INMOSEGUR_PORTRAIT.jpg": "/static/media/12_INMOSEGUR_PORTRAIT.7f06533ca66ab0e5a364.jpg",
+    "static/media/10_PORTRAIT_summerweekend.jpg": "/static/media/10_PORTRAIT_summerweekend.58445f49903980a9c2e7.jpg",
+    "static/media/03_AFD_PORTRAIT.jpg": "/static/media/03_AFD_PORTRAIT.3d9057236082d3d71c4c.jpg",
+    "static/media/14_DHC_portrait.jpg": "/static/media/14_DHC_portrait.f9962aa573a9634d96a9.jpg",
+    "static/media/09_EDM_PORTRAIT.jpg": "/static/media/09_EDM_PORTRAIT.7c16ddf00dc21f42fc1a.jpg",
+    "static/media/08_SLAB_PORTRAIT.jpg": "/static/media/08_SLAB_PORTRAIT.621223d7ea1473818b5b.jpg",
+    "static/media/07_CICLOVITAL_PORTRAIT.jpg": "/static/media/07_CICLOVITAL_PORTRAIT.e45eeb7aa66202f1440a.jpg",
+    "static/media/Laisha.otf": "/static/media/Laisha.2b91b389e630bb8d5275.otf",
+    "index.html": "/index.html",
+    "main.dea4eaf2.css.map": "/static/css/main.dea4eaf2.css.map",
+    "main.28807dbf.js.map": "/static/js/main.28807dbf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dea4eaf2.css",
+    "static/js/main.28807dbf.js"
+  ]
+}
