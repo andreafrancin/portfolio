@@ -1,10 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styles from "./index.module.scss";
 import { Page } from "../layout";
 import logoWhite from "../../assets/images/logo/logo_white.png";
 import logoColor from "../../assets/images/logo/logo_color.png";
 import useHover from "../../hooks/useHover";
+import Link from "next/link";
+import Image from "next/image";
 
 interface HeaderInterface {
   displayPrimaryLinks: boolean;
@@ -19,7 +20,7 @@ function Header({ displayPrimaryLinks, currentPage }: HeaderInterface) {
       <nav className={styles.content}>
         {displayPrimaryLinks && (
           <Link
-            to="/design"
+            href="/design"
             className={`${styles.primaryLink} ${
               currentPage === "design" ? styles.selected : ""
             }`}
@@ -32,7 +33,7 @@ function Header({ displayPrimaryLinks, currentPage }: HeaderInterface) {
           <ul className={styles.secondaryLinkList}>
             <li>
               <Link
-                to="/about"
+                href="/about"
                 className={`${styles.secondaryLink} ${
                   currentPage === "about" ? styles.selected : ""
                 }`}
@@ -41,8 +42,8 @@ function Header({ displayPrimaryLinks, currentPage }: HeaderInterface) {
               </Link>
             </li>
             <li ref={ref}>
-              <Link to="/">
-                <img
+              <Link href="/">
+                <Image
                   src={isHovered ? logoColor : logoWhite}
                   className={styles.logo}
                   alt="logo"
@@ -51,7 +52,7 @@ function Header({ displayPrimaryLinks, currentPage }: HeaderInterface) {
             </li>
             <li>
               <Link
-                to="/contact"
+                href="/contact"
                 className={`${styles.secondaryLink} ${
                   currentPage === "contact" ? styles.selected : ""
                 }`}
@@ -63,7 +64,7 @@ function Header({ displayPrimaryLinks, currentPage }: HeaderInterface) {
         </div>
         {displayPrimaryLinks && (
           <Link
-            to="/illustration"
+            href="/illustration"
             className={`${styles.primaryLink} ${
               currentPage === "illustration" ? styles.selected : ""
             }`}

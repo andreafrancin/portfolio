@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
-import Layout, { Page } from "../../components/layout";
+import Layout, { Page } from "../layout";
 import styles from "./index.module.scss";
-import Gallery from "../../components/gallery";
+import Gallery from "../gallery";
 import { PAGE_IDS } from "../../config/variables";
 import pineTree from "../../assets/images/background/pine-tree.jpg";
 import butterfly from "../../assets/images/background/butterfly.jpg";
@@ -21,9 +21,9 @@ function ProjectsContainer({
 }: ProjectsContainerInterface) {
   const backgroundStyle = useMemo(() => {
     const imageUrl = pageId === PAGE_IDS.design ? pineTree : butterfly;
-
+    console.log("imageUrl: ", imageUrl);
     return {
-      background: `url(${imageUrl})`,
+      background: `url(${imageUrl.src})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
     };

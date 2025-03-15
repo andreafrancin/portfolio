@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./index.module.scss";
+import Image from "next/image";
 
 interface Item {
   id: string;
@@ -21,7 +22,7 @@ const Gallery = ({ items, onItemClick }: GalleryInterface) => {
           className={styles.gridItem}
           onClick={() => onItemClick && onItemClick(item)}
         >
-          <img loading="lazy" src={item.imageUrl} alt={item.title} />
+          <Image src={item.imageUrl} alt={item.title} />
         </button>
       ))}
     </div>

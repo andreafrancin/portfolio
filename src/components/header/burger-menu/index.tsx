@@ -1,10 +1,11 @@
-// BurgerMenu.tsx
+"use client";
 import React, { useEffect, useState } from "react";
 import styles from "./index.module.scss";
-import { Link } from "react-router-dom";
 import useHover from "../../../hooks/useHover";
 import logoWhite from "../../../assets/images/logo/logo_white.png";
 import logoColor from "../../../assets/images/logo/logo_color.png";
+import Link from "next/link";
+import Image from "next/image";
 
 const BurgerMenu: React.FC = () => {
   const { ref, isHovered } = useHover<HTMLImageElement>();
@@ -22,8 +23,8 @@ const BurgerMenu: React.FC = () => {
   return (
     <div className={`${styles.container} ${isOpen ? styles.open : ""}`}>
       <div className={styles.logoContainer}>
-        <Link to="/">
-          <img
+        <Link href="/">
+          <Image
             ref={ref}
             src={isHovered ? logoColor : logoWhite}
             className={styles.logo}
@@ -39,19 +40,19 @@ const BurgerMenu: React.FC = () => {
       <div className={`${styles.menuItems} ${isOpen ? styles.show : ""}`}>
         <ul>
           <li>
-            <a href="/">Home</a>
+            <Link href="/">Home</Link>
           </li>
           <li>
-            <a href="/about">About</a>
+            <Link href="/about">About</Link>
           </li>
           <li>
-            <a href="/design">Design & Illustration</a>
+            <Link href="/design">Design & Illustration</Link>
           </li>
           <li>
-            <a href="/illustration">Illustration Artist</a>
+            <Link href="/illustration">Illustration Artist</Link>
           </li>
           <li>
-            <a href="/contact">Contact</a>
+            <Link href="/contact">Contact</Link>
           </li>
         </ul>
       </div>
