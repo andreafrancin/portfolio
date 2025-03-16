@@ -7,7 +7,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" title="Andrea Francin">
       <body>
         <LanguageProvider>{children}</LanguageProvider>
       </body>
