@@ -1,3 +1,4 @@
+import Spinner from "@/components/spinner";
 import ClientSideProjectContainer from "./index";
 import { Suspense } from "react";
 
@@ -24,7 +25,7 @@ export async function generateStaticParams() {
 
 export default function ProjectPage({ params }: any) {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Spinner />}>
       <ClientSideProjectContainer params={params} />
     </Suspense>
   );

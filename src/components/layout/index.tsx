@@ -4,7 +4,7 @@ import styles from "./index.module.scss";
 import Header from "../header";
 import useIsMobile from "../../hooks/useIsMobile";
 import BurgerMenu from "../header/burger-menu";
-import { useLanguage } from "@/context/LanguageContext";
+import LanguageSelector from "../header/lang-selector";
 
 export type Page = "about" | "home" | "contact" | "design" | "illustration";
 
@@ -17,8 +17,6 @@ interface LayoutInterface {
 }
 
 function Layout({ headerConfig, children }: LayoutInterface) {
-  const { language, setLanguage } = useLanguage();
-
   const isMobile = useIsMobile();
   const { displayPrimaryLinks = true, currentPage = "home" } =
     headerConfig || {};
@@ -43,32 +41,7 @@ function Layout({ headerConfig, children }: LayoutInterface) {
             currentPage={currentPage}
             displayPrimaryLinks={displayPrimaryLinks}
           />
-          <div className={styles.langContainer}>
-            <button
-              className={
-                language === "en" ? styles.langLinkSelected : styles.langLink
-              }
-              onClick={() => setLanguage("en")}
-            >
-              EN
-            </button>
-            <button
-              className={
-                language === "es" ? styles.langLinkSelected : styles.langLink
-              }
-              onClick={() => setLanguage("es")}
-            >
-              ES
-            </button>
-            <button
-              className={
-                language === "ca" ? styles.langLinkSelected : styles.langLink
-              }
-              onClick={() => setLanguage("ca")}
-            >
-              CA
-            </button>
-          </div>
+          <LanguageSelector />
         </>
       )}
       {children}

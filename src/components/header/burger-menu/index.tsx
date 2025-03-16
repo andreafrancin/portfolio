@@ -7,6 +7,7 @@ import logoColor from "../../../assets/images/logo/logo_color.png";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import LanguageSelector from "../lang-selector";
 
 const BurgerMenu = () => {
   const router = useRouter();
@@ -31,6 +32,7 @@ const BurgerMenu = () => {
 
   return (
     <div className={`${styles.container} ${isOpen ? styles.open : ""}`}>
+      {isOpen && <LanguageSelector onClick={() => setIsOpen(false)} />}
       <div className={styles.logoContainer}>
         <button onClick={() => handleNavigation("/")}>
           <Image
