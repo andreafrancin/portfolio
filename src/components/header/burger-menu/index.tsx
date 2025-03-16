@@ -7,7 +7,7 @@ import logoColor from "../../../assets/images/logo/logo_color.png";
 import Link from "next/link";
 import Image from "next/image";
 
-const BurgerMenu: React.FC = () => {
+const BurgerMenu = () => {
   const { ref, isHovered } = useHover<HTMLImageElement>();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +23,7 @@ const BurgerMenu: React.FC = () => {
   return (
     <div className={`${styles.container} ${isOpen ? styles.open : ""}`}>
       <div className={styles.logoContainer}>
-        <Link href="/">
+        <Link onClick={() => setIsOpen(false)} href="/">
           <Image
             ref={ref}
             src={isHovered ? logoColor : logoWhite}
@@ -40,19 +40,29 @@ const BurgerMenu: React.FC = () => {
       <div className={`${styles.menuItems} ${isOpen ? styles.show : ""}`}>
         <ul>
           <li>
-            <Link href="/">Home</Link>
+            <Link onClick={() => setIsOpen(false)} href="/">
+              Home
+            </Link>
           </li>
           <li>
-            <Link href="/about">About</Link>
+            <Link onClick={() => setIsOpen(false)} href="/about">
+              About
+            </Link>
           </li>
           <li>
-            <Link href="/design">Design & Illustration</Link>
+            <Link onClick={() => setIsOpen(false)} href="/design">
+              Design & Illustration
+            </Link>
           </li>
           <li>
-            <Link href="/illustration">Illustration Artist</Link>
+            <Link onClick={() => setIsOpen(false)} href="/illustration">
+              Illustration Artist
+            </Link>
           </li>
           <li>
-            <Link href="/contact">Contact</Link>
+            <Link onClick={() => setIsOpen(false)} href="/contact">
+              Contact
+            </Link>
           </li>
         </ul>
       </div>
