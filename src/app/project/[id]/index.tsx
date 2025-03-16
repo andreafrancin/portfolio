@@ -19,7 +19,6 @@ const ClientSideProjectContainer = ({ params }: { params: any }) => {
       const fetchData = async () => {
         try {
           const project = await fetchWithLanguage(`project/${id}`);
-          console.log(project);
           setData(project);
         } catch (error) {
           // console.error("Error fetching design projects:", error);

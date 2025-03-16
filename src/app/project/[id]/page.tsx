@@ -2,12 +2,23 @@ import ClientSideProjectContainer from "./index";
 import { Suspense } from "react";
 
 export async function generateStaticParams() {
-  const projects = await fetch("https://back.andreafrancin.com/projects");
-  const projectsData = await projects.json();
+  try {
+    const response = await fetch(
+      "https://back.andreafrancin.com/api/projects/"
+    );
 
-  return projectsData.map((project: { id: string }) => ({
-    id: project.id,
-  }));
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status}`);
+    }
+
+    const projects = await response.json();
+    return projects.map((project: { id: string }) => ({
+      id: project.id,
+    }));
+  } catch (error) {
+    console.error("Error fetching projects:", error);
+    return [];
+  }
 }
 
 export default function ProjectPage({ params }: any) {
