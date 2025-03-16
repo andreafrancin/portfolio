@@ -4,3 +4,17 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "MetaProNormal";
+  src: url("../assets/fonts/MetaPro/MetaPro-Normal.otf") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MetaProMedium";
+  src: url("../assets/fonts/MetaPro/MetaPro-Medium.otf") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}

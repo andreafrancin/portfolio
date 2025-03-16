@@ -2,27 +2,23 @@ import React from "react";
 import styles from "./index.module.scss";
 import Image from "next/image";
 
-interface Item {
-  id: string;
-  imageUrl: string;
-  title: string;
-}
-
 interface GalleryInterface {
-  items: Item[];
+  items: any;
   onItemClick: any;
 }
 
 const Gallery = ({ items, onItemClick }: GalleryInterface) => {
+  if (!items) return null;
+
   return (
     <div className={styles.gridContainer}>
-      {items.map((item) => (
+      {items?.map((item: any) => (
         <button
           key={item.id}
           className={styles.gridItem}
           onClick={() => onItemClick && onItemClick(item)}
         >
-          <Image src={item.imageUrl} alt={item.title} />
+          <img src={item?.image_resources[0]?.image_url} alt={item.title} />
         </button>
       ))}
     </div>

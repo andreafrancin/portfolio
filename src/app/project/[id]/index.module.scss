@@ -50,6 +50,23 @@
   }
 }
 
+.descriptionContainer {
+  width: 800px;
+  z-index: 2;
+  color: #fff;
+  margin: 40px 0;
+  font-size: 20px;
+  line-height: 26px;
+  font-family: "MetaProNormal", sans-serif;
+  text-align: left;
+}
+
+@media screen and (max-width: 960px) {
+  .descriptionContainer {
+    width: 90vw;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .imageContainer {
     width: 90vw;

@@ -32,3 +32,36 @@
   position: fixed;
   background: linear-gradient(to top, #000, rgba(0, 0, 0, 0));
 }
+
+.errorContainer {
+  background-color: #151515;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 30px;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid #bc0e4d;
+}
+
+.errorMessage {
+  color: #fff;
+  font-size: 20px;
+  font-family: "Laisha", sans-serif;
+  margin: 20px 0 0 0;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+}
+
+@media screen and (max-width: 960px) {
+  .errorContainer {
+    max-width: 90vw;
+    padding: 20px 10px;
+  }
+}
