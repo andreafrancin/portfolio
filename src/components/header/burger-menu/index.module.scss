@@ -69,11 +69,13 @@
       li {
         margin-bottom: 30px;
 
-        a {
+        button {
           color: #fff;
           text-decoration: none;
           font-family: "Laisha", sans-serif;
           font-size: 34px;
+          background-color: transparent;
+          border: none;
 
           &:hover {
             color: #bc0e4d;
@@ -86,9 +88,14 @@
 
 .logoContainer {
   position: absolute;
-  z-index: 2;
+  z-index: 999;
   top: 30px;
   left: calc(50vw - 50px);
+
+  button {
+    background-color: transparent;
+    border: none;
+  }
 }
 
 .logo {

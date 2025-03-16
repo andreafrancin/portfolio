@@ -1,13 +1,15 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styles from "./index.module.scss";
 import useHover from "../../../hooks/useHover";
 import logoWhite from "../../../assets/images/logo/logo_white.png";
 import logoColor from "../../../assets/images/logo/logo_color.png";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const BurgerMenu = () => {
+  const router = useRouter();
   const { ref, isHovered } = useHover<HTMLImageElement>();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -20,17 +22,22 @@ const BurgerMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleNavigation = useCallback((route: string) => {
+    setIsOpen(false);
+    router.push(route);
+  }, []);
+
   return (
     <div className={`${styles.container} ${isOpen ? styles.open : ""}`}>
       <div className={styles.logoContainer}>
-        <Link onClick={() => setIsOpen(false)} href="/">
+        <button onClick={() => handleNavigation("/")}>
           <Image
             ref={ref}
             src={isHovered ? logoColor : logoWhite}
             className={styles.logo}
             alt="logo"
           />
-        </Link>
+        </button>
       </div>
       <div className={styles.burgerIcon} onClick={toggleMenu}>
         <span className={styles.burgerLine}></span>
@@ -40,29 +47,25 @@ const BurgerMenu = () => {
       <div className={`${styles.menuItems} ${isOpen ? styles.show : ""}`}>
         <ul>
           <li>
-            <Link onClick={() => setIsOpen(false)} href="/">
-              Home
-            </Link>
+            <button onClick={() => handleNavigation("/")}>Home</button>
           </li>
           <li>
-            <Link onClick={() => setIsOpen(false)} href="/about">
-              About
-            </Link>
+            <button onClick={() => handleNavigation("/about")}>About</button>
           </li>
           <li>
-            <Link onClick={() => setIsOpen(false)} href="/design">
+            <button onClick={() => handleNavigation("/design")}>
               Design & Illustration
-            </Link>
+            </button>
           </li>
           <li>
-            <Link onClick={() => setIsOpen(false)} href="/illustration">
+            <button onClick={() => handleNavigation("/illustration")}>
               Illustration Artist
-            </Link>
+            </button>
           </li>
           <li>
-            <Link onClick={() => setIsOpen(false)} href="/contact">
+            <button onClick={() => handleNavigation("/contact")}>
               Contact
-            </Link>
+            </button>
           </li>
         </ul>
       </div>
