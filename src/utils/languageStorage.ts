@@ -1,7 +1,7 @@
 export const getLanguage = (): string => {
   return typeof window !== "undefined"
-    ? localStorage.getItem("language") || "en"
-    : "en";
+    ? localStorage.getItem("language") || "es"
+    : "es";
 };
 
 export const setLanguage = (lang: string): void => {
