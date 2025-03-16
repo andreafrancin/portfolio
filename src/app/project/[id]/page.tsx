@@ -12,8 +12,9 @@ export async function generateStaticParams() {
     }
 
     const projects = await response.json();
-    return projects.map((project: { id: string }) => ({
-      id: project.id,
+
+    return projects.map((project: { id: number | string }) => ({
+      id: String(project.id),
     }));
   } catch (error) {
     console.error("Error fetching projects:", error);
