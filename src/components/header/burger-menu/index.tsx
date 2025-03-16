@@ -24,7 +24,9 @@ const BurgerMenu = () => {
 
   const handleNavigation = useCallback((route: string) => {
     setIsOpen(false);
-    router.push(route);
+    setTimeout(() => {
+      router.push(route);
+    }, 500);
   }, []);
 
   return (
