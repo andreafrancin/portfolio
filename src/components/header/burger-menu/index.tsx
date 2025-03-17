@@ -4,7 +4,6 @@ import styles from "./index.module.scss";
 import useHover from "../../../hooks/useHover";
 import logoWhite from "../../../assets/images/logo/logo_white.png";
 import logoColor from "../../../assets/images/logo/logo_color.png";
-import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import LanguageSelector from "../lang-selector";
@@ -31,8 +30,10 @@ const BurgerMenu = () => {
 
   useEffect(() => {
     if (!isOpen && pendingRoute) {
-      router.push(pendingRoute);
-      setPendingRoute(null);
+      setTimeout(() => {
+        router.push(pendingRoute);
+        setPendingRoute(null);
+      }, 0);
     }
   }, [isOpen, pendingRoute, router]);
 
