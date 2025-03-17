@@ -17,17 +17,18 @@ interface LayoutInterface {
 }
 
 function Layout({ headerConfig, children }: LayoutInterface) {
+  const [isClient, setIsClient] = useState(false);
   const router = useRouter();
   const isMobile = useIsMobile();
   const { displayPrimaryLinks = true, currentPage = "home" } =
     headerConfig || {};
 
-  const [isClient, setIsClient] = useState(false);
-
+  // Detecta si estamos en el cliente o no
   useEffect(() => {
     setIsClient(true);
   }, []);
 
+  // Si no estamos en el cliente, no debemos renderizar el componente Layout
   if (!isClient) {
     return <div className={styles.loadingWindow}></div>;
   }
