@@ -5,19 +5,19 @@ import useHover from "../../../hooks/useHover";
 import logoWhite from "../../../assets/images/logo/logo_white.png";
 import logoColor from "../../../assets/images/logo/logo_color.png";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import LanguageSelector from "../lang-selector";
 
 const BurgerMenu = () => {
   const router = useRouter();
   const { ref, isHovered } = useHover<HTMLImageElement>();
-  const [pendingRoute, setPendingRoute] = useState<string | null>(null);
 
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
-    return () => setIsOpen(false);
-  }, []);
+    setIsOpen(false);
+  }, [pathname]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -25,17 +25,8 @@ const BurgerMenu = () => {
 
   const handleNavigation = useCallback((route: string) => {
     setIsOpen(false);
-    setPendingRoute(route);
+    router.push(route);
   }, []);
-
-  useEffect(() => {
-    if (!isOpen && pendingRoute) {
-      setTimeout(() => {
-        router.push(pendingRoute);
-        setPendingRoute(null);
-      }, 0);
-    }
-  }, [isOpen, pendingRoute, router]);
 
   return (
     <div className={`${styles.container} ${isOpen ? styles.open : ""}`}>
