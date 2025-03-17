@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styles from "./index.module.scss";
 import useHover from "../../../hooks/useHover";
 import logoWhite from "../../../assets/images/logo/logo_white.png";
@@ -17,13 +17,22 @@ const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prev) => !prev);
   };
 
-  const handleNavigation = useCallback((route: string) => {
-    if (pathname === route) setIsOpen(false);
-    router.push(route);
-  }, []);
+  const handleNavigation = useCallback(
+    (route: string) => {
+      if (pathname !== route) {
+        setIsOpen(false);
+        router.push(route);
+      }
+    },
+    [pathname, router]
+  );
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   return (
     <div className={`${styles.container} ${isOpen ? styles.open : ""}`}>
