@@ -9,7 +9,6 @@ export const setLanguage = (lang: string): void => {
     localStorage.setItem("language", lang);
 
     const url = new URL(window.location.toString());
-    url.searchParams.set("lang", lang);
-    window.location.href = url.toString();
+    window.location.replace(url.toString());
   }
 };

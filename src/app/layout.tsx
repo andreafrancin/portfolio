@@ -1,6 +1,10 @@
 import { LanguageProvider } from "@/context/LanguageContext";
 import "./globals.css";
-import Head from "next/head";
+
+export const metadata = {
+  title: "Andrea Francin",
+  description: "Graphic Designer & Illustrator",
+};
 
 export default function RootLayout({
   children,
@@ -8,11 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" title="Andrea Francin">
-      <Head>
-        <title>Andrea Francin</title>
-        <meta name="Andrea Francin" content="Graphic Designer & Illustrator" />
-      </Head>
+    <html lang="en">
       <body>
         <LanguageProvider>{children}</LanguageProvider>
       </body>
