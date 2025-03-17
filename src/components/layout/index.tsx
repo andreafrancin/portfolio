@@ -1,10 +1,16 @@
-import { useRouter } from "next/router";
+"use client";
+
 import React, { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import styles from "./index.module.scss";
 import Header from "../header";
 import useIsMobile from "../../hooks/useIsMobile";
-import BurgerMenu from "../header/burger-menu";
 import LanguageSelector from "../header/lang-selector";
+import dynamic from "next/dynamic";
+
+const BurgerMenu = dynamic(() => import("../header/burger-menu"), {
+  ssr: false,
+});
 
 export type Page = "about" | "home" | "contact" | "design" | "illustration";
 
@@ -18,23 +24,21 @@ interface LayoutInterface {
 
 function Layout({ headerConfig, children }: LayoutInterface) {
   const [isClient, setIsClient] = useState(false);
-  const router = useRouter();
+  const pathname = usePathname();
   const isMobile = useIsMobile();
   const { displayPrimaryLinks = true, currentPage = "home" } =
     headerConfig || {};
 
-  // Detecta si estamos en el cliente o no
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  // Si no estamos en el cliente, no debemos renderizar el componente Layout
   if (!isClient) {
     return <div className={styles.loadingWindow}></div>;
   }
 
   return (
-    <div className={styles.container} key={router.pathname}>
+    <div className={styles.container} key={pathname}>
       {isMobile ? (
         <BurgerMenu />
       ) : (
