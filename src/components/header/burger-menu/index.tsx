@@ -8,20 +8,25 @@ import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import LanguageSelector from "../lang-selector";
 
-const BurgerMenu = () => {
+const BurgerMenu = ({
+  isBurgerMenuOpen,
+  setIsBurgerMenuOpen,
+}: {
+  isBurgerMenuOpen: boolean;
+  setIsBurgerMenuOpen: Function;
+}) => {
   const router = useRouter();
   const pathname = usePathname();
   const { ref, isHovered } = useHover<HTMLImageElement>();
-  const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen((prev) => !prev);
+    setIsBurgerMenuOpen((prev: any) => !prev);
   };
 
   const handleNavigation = useCallback(
     (route: string) => {
       if (pathname !== route) {
-        setIsOpen(false);
+        setIsBurgerMenuOpen(false);
         router.push(route);
       }
     },
@@ -29,12 +34,16 @@ const BurgerMenu = () => {
   );
 
   useEffect(() => {
-    setIsOpen(false);
+    setIsBurgerMenuOpen(false);
   }, [pathname]);
 
   return (
-    <div className={`${styles.container} ${isOpen ? styles.open : ""}`}>
-      {isOpen && <LanguageSelector onClick={() => setIsOpen(false)} />}
+    <div
+      className={`${styles.container} ${isBurgerMenuOpen ? styles.open : ""}`}
+    >
+      {isBurgerMenuOpen && (
+        <LanguageSelector onClick={() => setIsBurgerMenuOpen(false)} />
+      )}
       <div className={styles.logoContainer}>
         <button onClick={() => handleNavigation("/")}>
           <Image
@@ -50,7 +59,9 @@ const BurgerMenu = () => {
         <span className={styles.burgerLine}></span>
         <span className={styles.burgerLine}></span>
       </div>
-      <div className={`${styles.menuItems} ${isOpen ? styles.show : ""}`}>
+      <div
+        className={`${styles.menuItems} ${isBurgerMenuOpen ? styles.show : ""}`}
+      >
         <ul>
           <li>
             <button onClick={() => handleNavigation("/")}>Home</button>

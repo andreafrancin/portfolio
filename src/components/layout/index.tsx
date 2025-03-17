@@ -24,6 +24,7 @@ interface LayoutInterface {
 
 function Layout({ headerConfig, children }: LayoutInterface) {
   const [isClient, setIsClient] = useState(false);
+  const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
   const pathname = usePathname();
   const isMobile = useIsMobile();
   const { displayPrimaryLinks = true, currentPage = "home" } =
@@ -33,7 +34,9 @@ function Layout({ headerConfig, children }: LayoutInterface) {
     setIsClient(true);
   }, []);
 
-  useEffect(() => {}, [pathname]);
+  useEffect(() => {
+    setIsBurgerMenuOpen(false);
+  }, [pathname]);
 
   if (!isClient) {
     return <div className={styles.loadingWindow}></div>;
@@ -41,8 +44,11 @@ function Layout({ headerConfig, children }: LayoutInterface) {
 
   return (
     <div className={styles.container} key={pathname}>
-      {isMobile ? (
-        <BurgerMenu />
+      {isMobile && isClient && isBurgerMenuOpen ? (
+        <BurgerMenu
+          isBurgerMenuOpen={isBurgerMenuOpen}
+          setIsBurgerMenuOpen={setIsBurgerMenuOpen}
+        />
       ) : (
         <>
           <Header
