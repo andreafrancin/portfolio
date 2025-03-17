@@ -46,8 +46,9 @@ function Layout({ headerConfig, children }: LayoutInterface) {
     <div className={styles.container} key={pathname}>
       {isMobile ? (
         <>
-          {isClient && isBurgerMenuOpen && (
+          {isClient && (
             <BurgerMenu
+              key={`${pathname}`}
               isBurgerMenuOpen={isBurgerMenuOpen}
               setIsBurgerMenuOpen={setIsBurgerMenuOpen}
             />
