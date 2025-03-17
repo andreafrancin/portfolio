@@ -4,9 +4,14 @@
   bottom: 0px;
   right: 30px;
   display: flex;
-  background-color: #151515;
+  background-color: #292929;
   padding: 20px;
   border-radius: 20px 20px 0 0;
+
+  @media screen and (max-width: 960px) {
+    border-radius: 20px 0 0 0;
+    right: 0;
+  }
 }
 
 .langLink {
