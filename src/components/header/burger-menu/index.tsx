@@ -23,21 +23,27 @@ const BurgerMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleRouteChange = () => {
+    setIsOpen(false);
+    router.refresh();
+  };
+
   useEffect(() => {
-    const handleRouteChange = () => setIsOpen(false);
-
-    router.prefetch("/");
-
     window.addEventListener("popstate", handleRouteChange);
     return () => {
       window.removeEventListener("popstate", handleRouteChange);
     };
   }, [router]);
 
-  const handleNavigation = useCallback((route: string) => {
-    setIsOpen(false);
-    router.push(route);
-  }, []);
+  const handleNavigation = useCallback(
+    (route: string) => {
+      setIsOpen(false);
+      setTimeout(() => {
+        router.push(route);
+      }, 100);
+    },
+    [router]
+  );
 
   return (
     <div className={`${styles.container} ${isOpen ? styles.open : ""}`}>
