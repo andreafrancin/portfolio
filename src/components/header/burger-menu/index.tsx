@@ -25,9 +25,11 @@ const BurgerMenu = ({
 
   const handleNavigation = useCallback(
     (route: string) => {
+      setIsBurgerMenuOpen(false);
       if (pathname !== route) {
-        setIsBurgerMenuOpen(false);
-        router.push(route);
+        setTimeout(() => {
+          router.push(route);
+        }, 50);
       }
     },
     [pathname, router]
