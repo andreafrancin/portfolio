@@ -12,6 +12,7 @@ import LanguageSelector from "../lang-selector";
 const BurgerMenu = () => {
   const router = useRouter();
   const { ref, isHovered } = useHover<HTMLImageElement>();
+  const [pendingRoute, setPendingRoute] = useState<string | null>(null);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -25,10 +26,15 @@ const BurgerMenu = () => {
 
   const handleNavigation = useCallback((route: string) => {
     setIsOpen(false);
-    setTimeout(() => {
-      router.push(route);
-    }, 500);
+    setPendingRoute(route);
   }, []);
+
+  useEffect(() => {
+    if (!isOpen && pendingRoute) {
+      router.push(pendingRoute);
+      setPendingRoute(null);
+    }
+  }, [isOpen, pendingRoute, router]);
 
   return (
     <div className={`${styles.container} ${isOpen ? styles.open : ""}`}>
