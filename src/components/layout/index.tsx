@@ -33,6 +33,8 @@ function Layout({ headerConfig, children }: LayoutInterface) {
     setIsClient(true);
   }, []);
 
+  useEffect(() => {}, [pathname]);
+
   if (!isClient) {
     return <div className={styles.loadingWindow}></div>;
   }

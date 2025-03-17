@@ -11,9 +11,7 @@ import LanguageSelector from "../lang-selector";
 const BurgerMenu = () => {
   const router = useRouter();
   const pathname = usePathname();
-
   const { ref, isHovered } = useHover<HTMLImageElement>();
-
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
