@@ -1,8 +1,8 @@
 "use client";
 import React, { useCallback, useEffect, useState } from "react";
 import styles from "./index.module.scss";
-import logoWhite from "../../../assets/images/logo/logo_white.png";
-import logoColor from "../../../assets/images/logo/logo_color.png";
+import logoWhite from "../../assets/images/logo/logo_white.png";
+import logoColor from "../../assets/images/logo/logo_color.png";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import LanguageSelector from "../header/lang-selector";
