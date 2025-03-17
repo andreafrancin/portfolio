@@ -1,11 +1,11 @@
 "use client";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import styles from "./index.module.scss";
 import useHover from "../../../hooks/useHover";
 import logoWhite from "../../../assets/images/logo/logo_white.png";
 import logoColor from "../../../assets/images/logo/logo_color.png";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import LanguageSelector from "../lang-selector";
 
 const BurgerMenu = () => {
@@ -13,37 +13,15 @@ const BurgerMenu = () => {
   const { ref, isHovered } = useHover<HTMLImageElement>();
 
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname();
-
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleRouteChange = () => {
+  const handleNavigation = useCallback((route: string) => {
     setIsOpen(false);
-    router.refresh();
-  };
-
-  useEffect(() => {
-    window.addEventListener("popstate", handleRouteChange);
-    return () => {
-      window.removeEventListener("popstate", handleRouteChange);
-    };
-  }, [router]);
-
-  const handleNavigation = useCallback(
-    (route: string) => {
-      setIsOpen(false);
-      setTimeout(() => {
-        router.push(route);
-      }, 100);
-    },
-    [router]
-  );
+    router.push(route);
+  }, []);
 
   return (
     <div className={`${styles.container} ${isOpen ? styles.open : ""}`}>

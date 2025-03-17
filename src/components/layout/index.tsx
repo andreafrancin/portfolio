@@ -1,4 +1,4 @@
-"use client";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import styles from "./index.module.scss";
 import Header from "../header";
@@ -17,6 +17,7 @@ interface LayoutInterface {
 }
 
 function Layout({ headerConfig, children }: LayoutInterface) {
+  const router = useRouter();
   const isMobile = useIsMobile();
   const { displayPrimaryLinks = true, currentPage = "home" } =
     headerConfig || {};
@@ -32,7 +33,7 @@ function Layout({ headerConfig, children }: LayoutInterface) {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} key={router.pathname}>
       {isMobile ? (
         <BurgerMenu />
       ) : (
