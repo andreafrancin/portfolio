@@ -44,11 +44,15 @@ function Layout({ headerConfig, children }: LayoutInterface) {
 
   return (
     <div className={styles.container} key={pathname}>
-      {isMobile && isClient && isBurgerMenuOpen ? (
-        <BurgerMenu
-          isBurgerMenuOpen={isBurgerMenuOpen}
-          setIsBurgerMenuOpen={setIsBurgerMenuOpen}
-        />
+      {isMobile ? (
+        <>
+          {isClient && isBurgerMenuOpen && (
+            <BurgerMenu
+              isBurgerMenuOpen={isBurgerMenuOpen}
+              setIsBurgerMenuOpen={setIsBurgerMenuOpen}
+            />
+          )}
+        </>
       ) : (
         <>
           <Header
