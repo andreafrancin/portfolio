@@ -40,7 +40,7 @@ const Carroussel = ({ data }: { data: any }) => {
                     } else if (direction === "left" && canMoveLeft) {
                         newIndex = prevIndex - 1;
                     }
-
+                    
                     contentRef.current?.scrollTo({ left: newIndex * childWidth, behavior: "smooth" });
 
                     return newIndex;
@@ -84,7 +84,8 @@ const Carroussel = ({ data }: { data: any }) => {
                         style={{ 
                             minWidth: "100%", 
                             transition: "opacity 0.2s ease-in-out", 
-                            opacity: index === currentIndex ? 1 : 0
+                            opacity: index === currentIndex ? 1 : 0,
+                            visibility: index === currentIndex ? 'visible' : 'hidden',
                         }}
                     >
                         <img src={item.image_url} alt={`Project Image ${index + 1}`} />
