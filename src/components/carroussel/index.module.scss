@@ -1,7 +1,7 @@
 .container {
     position: relative;
     width: 100vw;
-    max-height: 470px;
+    max-height: 500px;
     height: fit-content;
     z-index: 2;
     display: flex;
@@ -11,53 +11,59 @@
 }
 
 .content {
-    width: 100%;
-    height: 80%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform .2s ease-in-out;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    width: 60%;
+    height: 400px;
+    scroll-snap-type: x mandatory;
+    gap: 0;
+    padding: 0;
+    justify-content: flex-start;
 }
 
 .item {
-    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 400px;
-    margin: 0 10px;
-
-    img {
-        width: auto;
-        height: 400px;
-
-        @media screen and (max-width: 960px) {
-            height: auto;
-            width: 90vw;
-        }
+    width: fit-content;
+    scroll-snap-align: center;
+    margin-right: 20px;
+    
+    &:last-child {
+        margin-right: 0;
     }
+}
 
-    @media screen and (max-width: 960px) {
-        height: auto;
-        width: 90vw;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+.item img {
+    width: fit-content;
+    height: 100%;
+    object-fit: contain;
+}
+
+.buttonsContainer {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
 }
 
 .arrow {
     background-color: transparent;
     border: none;
     font-size: 50px;
-    width: 60px;
+    width: 50px;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 3;
 
-    &:hover {
-        path {
-            fill: #bc0e4d;
-        }
+    &:hover path {
+        fill: #bc0e4d;
     }
 
     svg {
@@ -67,20 +73,32 @@
 
 .arrowLeft {
     @extend .arrow;
+    margin-right: 20px;
 }
 
 .arrowRight {
     @extend .arrow;
+    margin-left: 20px;
 
     svg {
         transform: rotate(180deg);
     }
 }
 
-.buttonsContainer {
-    height: 70px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+
+@media screen and (max-width: 960px) {
+    .content {
+        width: 90vw;
+    }
+
+    .item {
+        height: auto;
+        width: 100%;
+        max-width: fit-content;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
 }
