@@ -31,7 +31,9 @@
     width: fit-content;
     scroll-snap-align: center;
     margin-right: 20px;
-    
+    overflow: hidden;
+    border-radius: 10px;
+
     &:last-child {
         margin-right: 0;
     }
@@ -41,6 +43,7 @@
     width: fit-content;
     height: 100%;
     object-fit: contain;
+    border-radius: 10px;
 }
 
 .buttonsContainer {
