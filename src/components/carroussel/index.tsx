@@ -34,6 +34,7 @@ const Carroussel = ({ data }: { data: any }) => {
 
                 setCurrentIndex((prevIndex) => {
                     let newIndex = prevIndex;
+
                     if (direction === "right" && canMoveRight) {
                         newIndex = prevIndex + 1;
                     } else if (direction === "left" && canMoveLeft) {
@@ -41,6 +42,7 @@ const Carroussel = ({ data }: { data: any }) => {
                     }
 
                     contentRef.current?.scrollTo({ left: newIndex * childWidth, behavior: "smooth" });
+
                     return newIndex;
                 });
             }
@@ -81,7 +83,7 @@ const Carroussel = ({ data }: { data: any }) => {
                         className={styles.item} 
                         style={{ 
                             minWidth: "100%", 
-                            transition: "opacity 0.5s ease-in-out",
+                            transition: "opacity 0.2s ease-in-out", 
                             opacity: index === currentIndex ? 1 : 0
                         }}
                     >
@@ -91,19 +93,15 @@ const Carroussel = ({ data }: { data: any }) => {
             </div>
             {canDisplayButtons && (
                 <div className={styles.buttonsContainer}>
-                    {canMoveLeft ? (
+                    {canMoveLeft && (
                         <button onClick={() => onArrowClick("left")} className={styles.arrowLeft}>
                             <ArrowIcon width={15} />
                         </button>
-                    ) : (
-                        <div className={styles.arrowLeft} />
                     )}
-                    {canMoveRight ? (
+                    {canMoveRight && (
                         <button onClick={() => onArrowClick("right")} className={styles.arrowRight}>
                             <ArrowIcon width={15} />
                         </button>
-                    ) : (
-                        <div className={styles.arrowRight} />
                     )}
                 </div>
             )}
