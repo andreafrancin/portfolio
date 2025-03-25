@@ -92,15 +92,19 @@ const Carroussel = ({ data }: { data: any }) => {
             </div>
             {canDisplayButtons && (
                 <div className={styles.buttonsContainer}>
-                    {canMoveLeft && (
+                    {canMoveLeft ? (
                         <button onClick={() => onArrowClick("left")} className={styles.arrowLeft}>
                             <ArrowIcon width={15} />
                         </button>
+                    ) : (
+                        <div className={styles.arrowLeft} />
                     )}
-                    {canMoveRight && (
+                    {canMoveRight ? (
                         <button onClick={() => onArrowClick("right")} className={styles.arrowRight}>
                             <ArrowIcon width={15} />
                         </button>
+                    ) : (
+                        <div className={styles.arrowRight} />
                     )}
                 </div>
             )}
