@@ -1,0 +1,86 @@
+.container {
+    position: relative;
+    width: 100vw;
+    max-height: 470px;
+    height: fit-content;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.content {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform .2s ease-in-out;
+}
+
+.item {
+    width: auto;
+    height: 400px;
+    margin: 0 10px;
+
+    img {
+        width: auto;
+        height: 400px;
+
+        @media screen and (max-width: 960px) {
+            height: auto;
+            width: 90vw;
+        }
+    }
+
+    @media screen and (max-width: 960px) {
+        height: auto;
+        width: 90vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.arrow {
+    background-color: transparent;
+    border: none;
+    font-size: 50px;
+    width: 60px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+
+    &:hover {
+        path {
+            fill: #bc0e4d;
+        }
+    }
+
+    svg {
+        cursor: pointer;
+    }
+}
+
+.arrowLeft {
+    @extend .arrow;
+}
+
+.arrowRight {
+    @extend .arrow;
+
+    svg {
+        transform: rotate(180deg);
+    }
+}
+
+.buttonsContainer {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}

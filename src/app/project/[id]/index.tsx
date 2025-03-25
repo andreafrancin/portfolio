@@ -8,6 +8,7 @@ import pineTree from "../../../assets/images/background/pine-tree.jpg";
 import butterfly from "../../../assets/images/background/butterfly.jpg";
 import { fetchWithLanguage } from "@/utils/fetchWithLanguage";
 import Description from "@/components/description";
+import Carroussel from "@/components/carroussel";
 
 const ClientSideProjectContainer = ({ params }: { params: any }) => {
   const [id, setId] = useState(null);
@@ -61,16 +62,7 @@ const ClientSideProjectContainer = ({ params }: { params: any }) => {
             <h1 className={styles.title}>
               {`.·. ${data?.title || "Untitled"} .·.`}
             </h1>
-            <div className={styles.imageContainer}>
-              {data ? (
-                <img
-                  src={data.image_resources[0].image_url}
-                  alt={data.title || "Project Image"}
-                />
-              ) : (
-                <p>Image not found</p>
-              )}
-            </div>
+            <Carroussel data={data} />
             {!!data?.description && (
               <div className={styles.descriptionContainer}>
                 <Description text={data.description} />
@@ -84,3 +76,8 @@ const ClientSideProjectContainer = ({ params }: { params: any }) => {
 };
 
 export default ClientSideProjectContainer;
+
+{/* <img
+                  src={data.image_resources[0].image_url}
+                  alt={data.title || "Project Image"}
+                /> */}
