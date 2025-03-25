@@ -81,7 +81,7 @@ const Carroussel = ({ data }: { data: any }) => {
                         className={styles.item} 
                         style={{ 
                             minWidth: "100%", 
-                            transition: "opacity 0.2s ease-in-out", 
+                            transition: "opacity 0.5s ease-in-out",
                             opacity: index === currentIndex ? 1 : 0
                         }}
                     >
