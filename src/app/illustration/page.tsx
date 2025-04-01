@@ -5,11 +5,13 @@ import { PAGE_IDS } from "../../config/variables";
 import ProjectsContainer from "../../components/projects";
 import { useRouter } from "next/navigation";
 import { fetchWithLanguage } from "@/utils/fetchWithLanguage";
+import { useTranslations } from "@/context/TranslationsContext";
 
 function IllustrationContainer() {
   const router = useRouter();
   const [projects, setProjects] = useState<any>(null);
   const [httpError, setHttpError] = useState(false);
+  const { localTranslations } = useTranslations();
 
   useEffect(() => {
     const loadProjects = async () => {
@@ -38,7 +40,7 @@ function IllustrationContainer() {
     <ProjectsContainer
       pageId={PAGE_IDS.illustration as Page}
       data={projects}
-      title=".·. Art .·."
+      title={localTranslations?.ILLUSTRATION_TITLE ? `.·. ${localTranslations?.ILLUSTRATION_TITLE} .·.` : ""}
       httpError={httpError}
       onClick={onClick}
     />

@@ -5,11 +5,13 @@ import { Page } from "../../components/layout";
 import { PAGE_IDS } from "../../config/variables";
 import ProjectsContainer from "../../components/projects";
 import { fetchWithLanguage } from "@/utils/fetchWithLanguage";
+import { useTranslations } from "@/context/TranslationsContext";
 
 function DesignContainer() {
   const router = useRouter();
   const [projects, setProjects] = useState<any>(null);
   const [httpError, setHttpError] = useState(false);
+  const { localTranslations } = useTranslations();
 
   useEffect(() => {
     const loadProjects = async () => {
@@ -37,7 +39,7 @@ function DesignContainer() {
     <ProjectsContainer
       pageId={PAGE_IDS.design as Page}
       data={projects}
-      title=".·. Projects .·."
+      title={localTranslations?.DESIGN_TITLE ? `.·. ${localTranslations?.DESIGN_TITLE} .·.` : ""}
       httpError={httpError}
       onClick={onClick}
     />

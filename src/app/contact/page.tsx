@@ -3,8 +3,11 @@ import React from "react";
 import Layout, { Page } from "../../components/layout";
 import { PAGE_IDS } from "../../config/variables";
 import styles from "./index.module.scss";
+import { useTranslations } from "@/context/TranslationsContext";
 
 function ContactContainer() {
+  const { localTranslations } = useTranslations();
+
   return (
     <Layout
       headerConfig={{
@@ -17,11 +20,11 @@ function ContactContainer() {
         </div>
         <div className={styles.right}>
           <div className={styles.infoContainer}>
-            <h1 className={styles.title}>Get in touch</h1>
+            <h1 className={styles.title}>{localTranslations?.CONTACT_TITLE}</h1>
             <p className={styles.description}>
-              Let me now how can we work together!
+              {localTranslations?.CONTACT_SUBTITLE}
               <br></br>
-              <b>andfrancin@gmail.com</b>
+              <b>{localTranslations?.CONTACT_EMAIL}</b>
             </p>
           </div>
         </div>

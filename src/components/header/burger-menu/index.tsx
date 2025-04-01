@@ -7,6 +7,7 @@ import logoColor from "../../../assets/images/logo/logo_color.png";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import LanguageSelector from "../lang-selector";
+import { useTranslations } from "@/context/TranslationsContext";
 
 const BurgerMenu = ({
   isBurgerMenuOpen,
@@ -18,6 +19,7 @@ const BurgerMenu = ({
   const router = useRouter();
   const pathname = usePathname();
   const { ref, isHovered } = useHover<HTMLImageElement>();
+  const { localTranslations } = useTranslations();
 
   const toggleMenu = () => {
     setIsBurgerMenuOpen((prev: any) => !prev);
@@ -66,24 +68,24 @@ const BurgerMenu = ({
       >
         <ul>
           <li>
-            <button onClick={() => handleNavigation("/")}>Home</button>
+            <button onClick={() => handleNavigation("/")}>{localTranslations?.HEADER_HOME}</button>
           </li>
           <li>
-            <button onClick={() => handleNavigation("/about")}>About</button>
+            <button onClick={() => handleNavigation("/about")}>{localTranslations?.HEADER_ABOUT}</button>
           </li>
           <li>
             <button onClick={() => handleNavigation("/design")}>
-              Design & Illustration
+              {localTranslations?.HEADER_DESIGN_ILLUSTRATION}
             </button>
           </li>
           <li>
             <button onClick={() => handleNavigation("/illustration")}>
-              Illustration Artist
+              {localTranslations?.HEADER_ILLUSTRATION_ARTIST}
             </button>
           </li>
           <li>
             <button onClick={() => handleNavigation("/contact")}>
-              Contact
+              {localTranslations?.HEADER_CONTACT}
             </button>
           </li>
         </ul>

@@ -1,5 +1,6 @@
 import { LanguageProvider } from "@/context/LanguageContext";
 import "./globals.css";
+import { TranslationsProvider } from "@/context/TranslationsContext";
 
 export const metadata = {
   title: "Andrea Francin",
@@ -8,13 +9,15 @@ export const metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body>
-        <LanguageProvider>{children}</LanguageProvider>
+        <TranslationsProvider>
+          <LanguageProvider>
+            {children}
+          </LanguageProvider>
+        </TranslationsProvider>
       </body>
     </html>
   );

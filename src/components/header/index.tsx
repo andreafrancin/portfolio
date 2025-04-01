@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./index.module.scss";
 import { Page } from "../layout";
 import logoWhite from "../../assets/images/logo/logo_white.png";
@@ -6,6 +6,7 @@ import logoColor from "../../assets/images/logo/logo_color.png";
 import useHover from "../../hooks/useHover";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "@/context/TranslationsContext";
 
 interface HeaderInterface {
   displayPrimaryLinks: boolean;
@@ -14,6 +15,7 @@ interface HeaderInterface {
 
 function Header({ displayPrimaryLinks, currentPage }: HeaderInterface) {
   const { ref, isHovered } = useHover<HTMLLIElement>();
+  const { localTranslations } = useTranslations();
 
   return (
     <header className={styles.container}>
@@ -26,7 +28,7 @@ function Header({ displayPrimaryLinks, currentPage }: HeaderInterface) {
             }`}
           >
             Andrea Francín
-            <p>.·. Design & Illustration .·.</p>
+            {localTranslations?.HEADER_DESIGN_ILLUSTRATION && <p>.·. {localTranslations?.HEADER_DESIGN_ILLUSTRATION	} .·.</p>}
           </Link>
         )}
         <div className={styles.listContainer}>
@@ -38,7 +40,7 @@ function Header({ displayPrimaryLinks, currentPage }: HeaderInterface) {
                   currentPage === "about" ? styles.selected : ""
                 }`}
               >
-                .·. About .·.
+                {localTranslations?.HEADER_ABOUT}
               </Link>
             </li>
             <li ref={ref}>
@@ -57,7 +59,7 @@ function Header({ displayPrimaryLinks, currentPage }: HeaderInterface) {
                   currentPage === "contact" ? styles.selected : ""
                 }`}
               >
-                .·. Contact .·.
+                {localTranslations?.HEADER_CONTACT}
               </Link>
             </li>
           </ul>
@@ -70,7 +72,7 @@ function Header({ displayPrimaryLinks, currentPage }: HeaderInterface) {
             }`}
           >
             Druida Nòmada
-            <p>.·. Illustration Artist .·.</p>
+            {localTranslations?.HEADER_ILLUSTRATION_ARTIST && <p>.·. {localTranslations?.HEADER_ILLUSTRATION_ARTIST} .·.</p>}
           </Link>
         )}
       </nav>
